@@ -1,0 +1,9 @@
+{
+  "rules": [
+    {
+      "source": "tests/fixtures/mixed-rules.txt",
+      "behavior": "auto",
+      "output": "fixture/mixed"
+    }
+  ]
+}

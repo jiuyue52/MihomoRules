@@ -1,12 +1,18 @@
-name: Update SKK Mihomo MRS
+name: Update SKK and custom Mihomo MRS
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "rules/skk/**"
+      - "JYRules/**"
   schedule:
     - cron: "37 * * * *"
   workflow_dispatch:
     inputs:
       force:
-        description: Rebuild even when the upstream Clash tree is unchanged
+        description: Rebuild even when tracked inputs are unchanged
         required: false
         default: false
         type: boolean
@@ -18,13 +24,18 @@ permissions:
   contents: write
 
 concurrency:
-  group: update-skk-mrs-${{ github.ref }}
+  group: update-mrs-${{ github.ref }}
   cancel-in-progress: false
 
 env:
   SKK_REPOSITORY: SukkaLab/ruleset.skk.moe
   SKK_REF: master
-  OUTPUT_DIR: rules/skk
+  SKK_OUTPUT_DIR: rules/skk
+  JY_OUTPUT_DIR: JYRules
+  CUSTOM_MANIFEST: custom-rules.json
+  # Pin the verified core release and checksum; do not trust a moving latest asset.
+  MIHOMO_VERSION: v1.19.29
+  MIHOMO_LINUX_AMD64_SHA256: 5612e698e96c8b8ad15abc4c0a4f098eba9234354b4f248cb97f2528e215b094
 
 jobs:
   update:
@@ -46,7 +57,6 @@ jobs:
           path: .upstream/skk
           sparse-checkout: |
             Clash
-            LICENSE
 
       - name: Read upstream revision
         id: upstream
@@ -61,20 +71,110 @@ jobs:
             echo "short_tree=${tree:0:12}"
           } >> "$GITHUB_OUTPUT"
 
+      - name: Resolve pinned Mihomo release
+        id: mihomo_release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -Eeuo pipefail
+          release_json="$(
+            curl --fail --silent --show-error --location --retry 3 \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/MetaCubeX/mihomo/releases/tags/$MIHOMO_VERSION"
+          )"
+          version="$(jq -er '.tag_name' <<< "$release_json")"
+          [[ "$version" == "$MIHOMO_VERSION" ]] || {
+            echo "Unexpected Mihomo release tag: $version" >&2
+            exit 1
+          }
+          asset_name="mihomo-linux-amd64-compatible-${version}.gz"
+          asset_url="$(
+            jq -er --arg name "$asset_name" \
+              '.assets[] | select(.name == $name) | .browser_download_url' \
+              <<< "$release_json"
+          )"
+          digest="$(
+            jq -er --arg name "$asset_name" \
+              '.assets[] | select(.name == $name) | .digest' \
+              <<< "$release_json"
+          )"
+          [[ "$digest" == sha256:* ]] || {
+            echo "Mihomo release asset has no SHA256 digest: $asset_name" >&2
+            exit 1
+          }
+          [[ "$digest" == "sha256:$MIHOMO_LINUX_AMD64_SHA256" ]] || {
+            echo "Mihomo release asset digest does not match the pinned checksum" >&2
+            exit 1
+          }
+          {
+            echo "version=$version"
+            echo "asset_name=$asset_name"
+            echo "asset_url=$asset_url"
+            echo "digest=$digest"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Check whether a rebuild is needed
         id: rebuild
         shell: bash
         run: |
           set -Eeuo pipefail
-
-          current_tree="$(cat "$OUTPUT_DIR/.upstream-tree" 2>/dev/null || true)"
-          current_builder="$(cat "$OUTPUT_DIR/.builder-sha256" 2>/dev/null || true)"
+          current_tree="$(cat "$SKK_OUTPUT_DIR/.upstream-tree" 2>/dev/null || true)"
+          current_builder="$(cat "$SKK_OUTPUT_DIR/.builder-sha256" 2>/dev/null || true)"
+          current_mihomo="$(cat "$SKK_OUTPUT_DIR/.mihomo-version" 2>/dev/null || true)"
           builder_sha="$(
             sha256sum \
-              scripts/build-skk-mrs.sh \
+              scripts/build_mrs.py \
+              "$CUSTOM_MANIFEST" \
               .github/workflows/update-skk-mrs.yml \
               | sha256sum | cut -d ' ' -f 1
           )"
+          custom_count="$(
+            jq -er '
+              (if type == "array" then . else .rules end)
+              | [.[]? | select(if has("enabled") then .enabled else true end)] | length
+            ' "$CUSTOM_MANIFEST"
+          )"
+
+          reports_complete() {
+            local root=$1
+            local require_output=$2
+            local report="$root/conversion-report.json"
+            local output_paths
+            local relative
+            local -a paths=()
+            [[ -f "$report" ]] || return 1
+            output_paths="$(
+              jq -cer '
+                if (.files | type) != "array" then
+                  error("files must be an array")
+                else
+                  [
+                    .files[]
+                    | if (.outputs | type) != "array" then
+                        error("outputs must be an array")
+                      else
+                        .outputs[]
+                        | if (.path | type) == "string" and (.path | length) > 0 then
+                            .path
+                          else
+                            error("output path must be a non-empty string")
+                          end
+                      end
+                  ]
+                end
+              ' "$report"
+            )" || return 1
+            mapfile -t paths < <(jq -r '.[]' <<< "$output_paths")
+            if [[ "$require_output" == "true" && ${#paths[@]} -eq 0 ]]; then
+              return 1
+            fi
+            for relative in "${paths[@]}"; do
+              [[ -f "$root/$relative" ]] || return 1
+            done
+          }
 
           required=false
           if [[ "$current_tree" != "${{ steps.upstream.outputs.tree }}" ]]; then
@@ -83,122 +183,121 @@ jobs:
           fi
           if [[ "$current_builder" != "$builder_sha" ]]; then
             required=true
-            echo "Builder changed."
+            echo "Builder or custom manifest changed."
           fi
-          if [[ ! -d "$OUTPUT_DIR/domainset" || ! -d "$OUTPUT_DIR/ip" ]]; then
+          if [[ "$current_mihomo" != "${{ steps.mihomo_release.outputs.version }}" ]]; then
+            required=true
+            echo "Mihomo release changed."
+          fi
+          if ! reports_complete "$SKK_OUTPUT_DIR" true \
+            || ! reports_complete "$JY_OUTPUT_DIR" false; then
             required=true
             echo "Generated output is missing."
+          fi
+          if ((custom_count > 0)); then
+            required=true
+            echo "Configured custom sources will be refreshed."
           fi
           if [[ "${{ inputs.force }}" == "true" ]]; then
             required=true
             echo "A forced rebuild was requested."
           fi
-
           {
             echo "required=$required"
             echo "builder_sha=$builder_sha"
           } >> "$GITHUB_OUTPUT"
 
           if [[ "$required" == "false" ]]; then
-            echo "SKK Clash rules are already current."
+            echo "All generated rules are current."
           fi
 
-      - name: Download current Mihomo
+      - name: Download and verify Mihomo
         id: mihomo
         if: steps.rebuild.outputs.required == 'true'
         shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           set -Eeuo pipefail
-
-          api_url="https://api.github.com/repos/MetaCubeX/mihomo/releases/latest"
-          release_json="$(
-            curl --fail --silent --show-error --location --retry 3 \
-              -H "Accept: application/vnd.github+json" \
-              -H "Authorization: Bearer $GH_TOKEN" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              "$api_url"
-          )"
-
-          version="$(jq -er '.tag_name' <<< "$release_json")"
-          asset_name="mihomo-linux-amd64-compatible-${version}.gz"
-          asset_url="$(
-            jq -er --arg name "$asset_name" \
-              '.assets[] | select(.name == $name) | .browser_download_url' \
-              <<< "$release_json"
-          )"
-          expected_digest="$(
-            jq -r --arg name "$asset_name" \
-              '.assets[] | select(.name == $name) | .digest // empty' \
-              <<< "$release_json"
-          )"
-
-          archive="$RUNNER_TEMP/$asset_name"
+          archive="$RUNNER_TEMP/${{ steps.mihomo_release.outputs.asset_name }}"
           binary="$RUNNER_TEMP/mihomo"
           curl --fail --silent --show-error --location --retry 3 \
-            "$asset_url" -o "$archive"
-
-          if [[ "$expected_digest" == sha256:* ]]; then
-            actual_digest="sha256:$(sha256sum "$archive" | cut -d ' ' -f 1)"
-            [[ "$actual_digest" == "$expected_digest" ]] || {
-              echo "Mihomo checksum mismatch" >&2
-              exit 1
-            }
-          fi
-
+            "${{ steps.mihomo_release.outputs.asset_url }}" -o "$archive"
+          actual_digest="sha256:$(sha256sum "$archive" | cut -d ' ' -f 1)"
+          [[ "$actual_digest" == "${{ steps.mihomo_release.outputs.digest }}" ]] || {
+            echo "Mihomo checksum mismatch" >&2
+            exit 1
+          }
           gzip -dc "$archive" > "$binary"
           chmod 0755 "$binary"
           "$binary" -v
+          echo "path=$binary" >> "$GITHUB_OUTPUT"
 
-          {
-            echo "path=$binary"
-            echo "version=$version"
-          } >> "$GITHUB_OUTPUT"
+      - name: Run converter tests
+        if: steps.rebuild.outputs.required == 'true'
+        run: python3 -m unittest discover -s tests -v
 
-      - name: Convert compatible SKK rules
+      - name: Convert SKK and custom rules
         if: steps.rebuild.outputs.required == 'true'
         shell: bash
         run: |
           set -Eeuo pipefail
-          bash scripts/build-skk-mrs.sh \
-            .upstream/skk/Clash \
-            "$OUTPUT_DIR" \
-            "${{ steps.mihomo.outputs.path }}"
+          stage="$RUNNER_TEMP/mrs-output"
+          rm -rf -- "$stage"
+          mkdir -p "$stage/rules"
 
-          printf '%s\n' "${{ steps.upstream.outputs.tree }}" \
-            > "$OUTPUT_DIR/.upstream-tree"
-          printf '%s\n' "${{ steps.mihomo.outputs.version }}" \
-            > "$OUTPUT_DIR/.mihomo-version"
+          python3 scripts/build_mrs.py \
+            --skk-root .upstream/skk/Clash \
+            --skk-output "$stage/rules/skk" \
+            --manifest "$CUSTOM_MANIFEST" \
+            --jy-output "$stage/JYRules" \
+            --repo-root "$GITHUB_WORKSPACE" \
+            --mihomo "${{ steps.mihomo.outputs.path }}"
+
+          rm -rf -- "$SKK_OUTPUT_DIR" "$JY_OUTPUT_DIR"
+          mkdir -p "$(dirname "$SKK_OUTPUT_DIR")"
+          mv -- "$stage/rules/skk" "$SKK_OUTPUT_DIR"
+          mv -- "$stage/JYRules" "$JY_OUTPUT_DIR"
+
+          printf '%s\n' "${{ steps.upstream.outputs.sha }}" > "$SKK_OUTPUT_DIR/.upstream-commit"
+          printf '%s\n' "${{ steps.upstream.outputs.tree }}" > "$SKK_OUTPUT_DIR/.upstream-tree"
+          printf '%s\n' "${{ steps.mihomo_release.outputs.version }}" \
+            > "$SKK_OUTPUT_DIR/.mihomo-version"
           printf '%s\n' "${{ steps.rebuild.outputs.builder_sha }}" \
-            > "$OUTPUT_DIR/.builder-sha256"
-          cp .upstream/skk/LICENSE "$OUTPUT_DIR/LICENSE"
+            > "$SKK_OUTPUT_DIR/.builder-sha256"
+          cp .upstream/skk/LICENSE "$SKK_OUTPUT_DIR/LICENSE"
 
-          cat > "$OUTPUT_DIR/NOTICE.md" <<'EOF'
+          cat > "$SKK_OUTPUT_DIR/NOTICE.md" <<'EOF'
           # SKK Ruleset attribution
 
-          These MRS files were generated from the Mihomo-compatible Clash output
+          These MRS files are generated from the Mihomo-compatible Clash output
           published by [Sukka Ruleset](https://github.com/SukkaLab/ruleset.skk.moe).
 
+          - Upstream commit: `${{ steps.upstream.outputs.sha }}`
           - Clash tree: `${{ steps.upstream.outputs.tree }}`
-          - Converter: Mihomo `${{ steps.mihomo.outputs.version }}`
-          - `domainset/*.mrs`: AGPL-3.0
+          - Converter: Mihomo `${{ steps.mihomo_release.outputs.version }}`
+          - Most `domainset`, `non_ip`, and `ip` sources: AGPL-3.0
           - `ip/china_ip.mrs` and `ip/china_ip_ipv6.mrs`: CC BY-SA 2.0
 
-          Only rule sets that Mihomo can represent losslessly as `domain` or
-          `ipcidr` MRS are included. SKK `Clash/non_ip` and the other `Clash/ip`
-          files use `classical` behavior and are intentionally not converted.
+          Clash classical files are split into the domain and ipcidr subsets that
+          MRS can represent without changing their matching direction. Unsupported
+          individual entries are listed in `conversion-report.json` and do not
+          prevent other entries in the same source file from being converted. MRS
+          cannot store per-entry `no-resolve`; set that option on the consuming
+          `RULE-SET` rule when required.
           EOF
 
-          file_count="$(find "$OUTPUT_DIR" -type f -name '*.mrs' | wc -l)"
-          ((file_count > 0))
+          skk_files="$(jq -r '.summary.mrs_files' "$SKK_OUTPUT_DIR/conversion-report.json")"
+          skk_dropped="$(jq -r '.summary.dropped_rules' "$SKK_OUTPUT_DIR/conversion-report.json")"
+          jy_files="$(jq -r '.summary.mrs_files' "$JY_OUTPUT_DIR/conversion-report.json")"
+          jy_dropped="$(jq -r '.summary.dropped_rules' "$JY_OUTPUT_DIR/conversion-report.json")"
           {
-            echo "## SKK MRS build"
+            echo "## MRS build"
             echo
-            echo "- Upstream commit: \`${{ steps.upstream.outputs.sha }}\`"
-            echo "- Clash tree: \`${{ steps.upstream.outputs.tree }}\`"
-            echo "- Mihomo: \`${{ steps.mihomo.outputs.version }}\`"
-            echo "- MRS files: \`$file_count\`"
+            echo "- SKK commit: \`${{ steps.upstream.outputs.sha }}\`"
+            echo "- SKK MRS files: \`$skk_files\`"
+            echo "- SKK rejected entries: \`$skk_dropped\`"
+            echo "- JYRules MRS files: \`$jy_files\`"
+            echo "- JYRules rejected entries: \`$jy_dropped\`"
+            echo "- Mihomo: \`${{ steps.mihomo_release.outputs.version }}\`"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit changed rules
@@ -206,19 +305,18 @@ jobs:
         shell: bash
         run: |
           set -Eeuo pipefail
-
           [[ "$GITHUB_REF_TYPE" == "branch" ]] || {
             echo "Refusing to publish from non-branch ref: $GITHUB_REF" >&2
             exit 1
           }
 
-          git add -A -- "$OUTPUT_DIR"
+          git add -A -- "$SKK_OUTPUT_DIR" "$JY_OUTPUT_DIR"
           if git diff --cached --quiet; then
-            echo "SKK rules are already current."
+            echo "Generated rules are unchanged."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(rules): update SKK MRS to ${{ steps.upstream.outputs.short_tree }}"
+          git commit -m "chore(rules): update MRS to ${{ steps.upstream.outputs.short_tree }}"
           git push origin "HEAD:$GITHUB_REF_NAME"

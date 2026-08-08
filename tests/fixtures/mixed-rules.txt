@@ -1,0 +1,6 @@
+# A mixed Clash text ruleset for local integration testing.
+DOMAIN,exact.example
+DOMAIN-SUFFIX,suffix.example
+DOMAIN-KEYWORD,unsupported
+IP-CIDR,192.0.2.7/24,no-resolve
+IP-CIDR6,2001:db8::1/32,no-resolve
