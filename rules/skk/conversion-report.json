@@ -1,0 +1,1654 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "source_files": 69,
+    "candidate_rules": 387290,
+    "kept_domain_rules": 380376,
+    "kept_ipcidr_rules": 6444,
+    "dropped_rules": 470,
+    "mrs_files": 57
+  },
+  "files": [
+    {
+      "source": "domainset/apple_cdn.txt",
+      "candidate_rules": 159,
+      "kept_domain_rules": 158,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/apple_cdn.mrs",
+          "input_rules": 158
+        }
+      ]
+    },
+    {
+      "source": "domainset/cdn.txt",
+      "candidate_rules": 4583,
+      "kept_domain_rules": 4582,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/cdn.mrs",
+          "input_rules": 4582
+        }
+      ]
+    },
+    {
+      "source": "domainset/clash_fake_ip_filter.txt",
+      "candidate_rules": 27,
+      "kept_domain_rules": 26,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "this_ruleset_is_made_by_sukkaw.ruleset.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/clash_fake_ip_filter.mrs",
+          "input_rules": 26
+        }
+      ]
+    },
+    {
+      "source": "domainset/download.txt",
+      "candidate_rules": 1968,
+      "kept_domain_rules": 1967,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/download.mrs",
+          "input_rules": 1967
+        }
+      ]
+    },
+    {
+      "source": "domainset/game-download.txt",
+      "candidate_rules": 53,
+      "kept_domain_rules": 52,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/game-download.mrs",
+          "input_rules": 52
+        }
+      ]
+    },
+    {
+      "source": "domainset/icloud_private_relay.txt",
+      "candidate_rules": 7,
+      "kept_domain_rules": 6,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/icloud_private_relay.mrs",
+          "input_rules": 6
+        }
+      ]
+    },
+    {
+      "source": "domainset/reject.txt",
+      "candidate_rules": 115732,
+      "kept_domain_rules": 115731,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/reject.mrs",
+          "input_rules": 115731
+        }
+      ]
+    },
+    {
+      "source": "domainset/reject_extra.txt",
+      "candidate_rules": 105632,
+      "kept_domain_rules": 105631,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/reject_extra.mrs",
+          "input_rules": 105631
+        }
+      ]
+    },
+    {
+      "source": "domainset/reject_phishing.txt",
+      "candidate_rules": 145614,
+      "kept_domain_rules": 145613,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/reject_phishing.mrs",
+          "input_rules": 145613
+        }
+      ]
+    },
+    {
+      "source": "domainset/reject_sukka.txt",
+      "candidate_rules": 0,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 0,
+      "dropped": {},
+      "outputs": []
+    },
+    {
+      "source": "domainset/speedtest.txt",
+      "candidate_rules": 3318,
+      "kept_domain_rules": 3313,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 5,
+      "dropped": {
+        "skk_marker": {
+          "count": 5,
+          "examples": [
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe",
+            "7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe",
+            "7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "domainset/speedtest.mrs",
+          "input_rules": 3313
+        }
+      ]
+    },
+    {
+      "source": "non_ip/ai.txt",
+      "candidate_rules": 50,
+      "kept_domain_rules": 47,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 3,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 2,
+          "examples": [
+            "DOMAIN-KEYWORD,openai",
+            "DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/ai.mrs",
+          "input_rules": 47
+        }
+      ]
+    },
+    {
+      "source": "non_ip/apple_cdn.txt",
+      "candidate_rules": 0,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 0,
+      "dropped": {},
+      "outputs": []
+    },
+    {
+      "source": "non_ip/apple_cn.txt",
+      "candidate_rules": 10,
+      "kept_domain_rules": 9,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/apple_cn.mrs",
+          "input_rules": 9
+        }
+      ]
+    },
+    {
+      "source": "non_ip/apple_intelligence.txt",
+      "candidate_rules": 6,
+      "kept_domain_rules": 5,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/apple_intelligence.mrs",
+          "input_rules": 5
+        }
+      ]
+    },
+    {
+      "source": "non_ip/apple_services.txt",
+      "candidate_rules": 26,
+      "kept_domain_rules": 16,
+      "kept_ipcidr_rules": 1,
+      "dropped_rules": 9,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 8,
+          "examples": [
+            "PROCESS-NAME,com.apple.geod",
+            "PROCESS-NAME,mapspushd",
+            "PROCESS-NAME,com.apple.Maps"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/apple_services.mrs",
+          "input_rules": 16
+        },
+        {
+          "behavior": "ipcidr",
+          "path": "non_ip/apple_services_ipcidr.mrs",
+          "input_rules": 1
+        }
+      ]
+    },
+    {
+      "source": "non_ip/cdn.txt",
+      "candidate_rules": 85,
+      "kept_domain_rules": 5,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 80,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 58,
+          "examples": [
+            "DOMAIN-WILDCARD,cdn.*.office.net",
+            "DOMAIN-WILDCARD,cdn.*.microsoft.com",
+            "DOMAIN-WILDCARD,cdn-*.microsoft.com"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 21,
+          "examples": [
+            "DOMAIN-KEYWORD,-files.gitbook.io",
+            "DOMAIN-KEYWORD,vod-adaptive.akamaized.net",
+            "DOMAIN-KEYWORD,web-assets.zendesk"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/cdn.mrs",
+          "input_rules": 5
+        }
+      ]
+    },
+    {
+      "source": "non_ip/cloudmounter.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "non_ip/direct.txt",
+      "candidate_rules": 217,
+      "kept_domain_rules": 171,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 46,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 9,
+          "examples": [
+            "DOMAIN-KEYWORD,cnki.net",
+            "DOMAIN-KEYWORD,wanfangdata",
+            "DOMAIN-KEYWORD,pkulaw"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 36,
+          "examples": [
+            "PROCESS-NAME,v2ray",
+            "PROCESS-NAME,xray",
+            "PROCESS-NAME,ss-local"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/direct.mrs",
+          "input_rules": 171
+        }
+      ]
+    },
+    {
+      "source": "non_ip/domestic.txt",
+      "candidate_rules": 866,
+      "kept_domain_rules": 864,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 2,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 1,
+          "examples": [
+            "DOMAIN-WILDCARD,*.qhimgs?.com"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/domestic.mrs",
+          "input_rules": 864
+        }
+      ]
+    },
+    {
+      "source": "non_ip/download.txt",
+      "candidate_rules": 10,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 10,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 9,
+          "examples": [
+            "DOMAIN-WILDCARD,download*.mediafire.com",
+            "DOMAIN-WILDCARD,ftp.??.debian.org",
+            "DOMAIN-WILDCARD,ftp.??.freebsd.org"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "non_ip/gitlab.txt",
+      "candidate_rules": 2,
+      "kept_domain_rules": 1,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/gitlab.mrs",
+          "input_rules": 1
+        }
+      ]
+    },
+    {
+      "source": "non_ip/global.txt",
+      "candidate_rules": 1269,
+      "kept_domain_rules": 1259,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 10,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 9,
+          "examples": [
+            "DOMAIN-KEYWORD,google",
+            "DOMAIN-KEYWORD,blogspot",
+            "DOMAIN-KEYWORD,facebook"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/global.mrs",
+          "input_rules": 1259
+        }
+      ]
+    },
+    {
+      "source": "non_ip/global_plus.txt",
+      "candidate_rules": 0,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 0,
+      "dropped": {},
+      "outputs": []
+    },
+    {
+      "source": "non_ip/lan.txt",
+      "candidate_rules": 50,
+      "kept_domain_rules": 49,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/lan.mrs",
+          "input_rules": 49
+        }
+      ]
+    },
+    {
+      "source": "non_ip/microsoft.txt",
+      "candidate_rules": 84,
+      "kept_domain_rules": 80,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 4,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 3,
+          "examples": [
+            "DOMAIN-KEYWORD,1drv",
+            "DOMAIN-KEYWORD,microsoft",
+            "DOMAIN-KEYWORD,hotmail"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/microsoft.mrs",
+          "input_rules": 80
+        }
+      ]
+    },
+    {
+      "source": "non_ip/microsoft_cdn.txt",
+      "candidate_rules": 53,
+      "kept_domain_rules": 52,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/microsoft_cdn.mrs",
+          "input_rules": 52
+        }
+      ]
+    },
+    {
+      "source": "non_ip/my_direct.txt",
+      "candidate_rules": 3,
+      "kept_domain_rules": 1,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 2,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 1,
+          "examples": [
+            "PROCESS-NAME,nmap"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/my_direct.mrs",
+          "input_rules": 1
+        }
+      ]
+    },
+    {
+      "source": "non_ip/my_git.txt",
+      "candidate_rules": 8,
+      "kept_domain_rules": 7,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/my_git.mrs",
+          "input_rules": 7
+        }
+      ]
+    },
+    {
+      "source": "non_ip/my_plus.txt",
+      "candidate_rules": 16,
+      "kept_domain_rules": 15,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/my_plus.mrs",
+          "input_rules": 15
+        }
+      ]
+    },
+    {
+      "source": "non_ip/my_proxy.txt",
+      "candidate_rules": 17,
+      "kept_domain_rules": 16,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/my_proxy.mrs",
+          "input_rules": 16
+        }
+      ]
+    },
+    {
+      "source": "non_ip/my_reject.txt",
+      "candidate_rules": 52,
+      "kept_domain_rules": 41,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 11,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 4,
+          "examples": [
+            "DOMAIN-KEYWORD,bahoom",
+            "DOMAIN-KEYWORD,-flv.meituan.net",
+            "DOMAIN-KEYWORD,-live.meituan.net"
+          ]
+        },
+        "unsupported_rule_type:DST-PORT": {
+          "count": 1,
+          "examples": [
+            "DST-PORT,7680"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 5,
+          "examples": [
+            "PROCESS-NAME,Tencent Lemon",
+            "PROCESS-NAME,LemonMonitor",
+            "PROCESS-NAME,LemonDaemon"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/my_reject.mrs",
+          "input_rules": 41
+        }
+      ]
+    },
+    {
+      "source": "non_ip/my_tw.txt",
+      "candidate_rules": 14,
+      "kept_domain_rules": 9,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 5,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 4,
+          "examples": [
+            "DOMAIN-WILDCARD,*.ffzy-online?.com",
+            "DOMAIN-WILDCARD,*.ffzy-play?.com",
+            "DOMAIN-WILDCARD,*.lz-cdn?.com"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/my_tw.mrs",
+          "input_rules": 9
+        }
+      ]
+    },
+    {
+      "source": "non_ip/my_us.txt",
+      "candidate_rules": 7,
+      "kept_domain_rules": 6,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/my_us.mrs",
+          "input_rules": 6
+        }
+      ]
+    },
+    {
+      "source": "non_ip/neteasemusic.txt",
+      "candidate_rules": 3,
+      "kept_domain_rules": 2,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/neteasemusic.mrs",
+          "input_rules": 2
+        }
+      ]
+    },
+    {
+      "source": "non_ip/reject-drop.txt",
+      "candidate_rules": 28,
+      "kept_domain_rules": 26,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 2,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 1,
+          "examples": [
+            "DOMAIN-WILDCARD,f-log*.grammarly.io"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/reject-drop.mrs",
+          "input_rules": 26
+        }
+      ]
+    },
+    {
+      "source": "non_ip/reject-no-drop.txt",
+      "candidate_rules": 44,
+      "kept_domain_rules": 35,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 9,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 6,
+          "examples": [
+            "DOMAIN-WILDCARD,p2p*.qq.com",
+            "DOMAIN-WILDCARD,p2p-*.douyucdn.cn",
+            "DOMAIN-WILDCARD,p2pchunk-*.douyucdn.cn"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 2,
+          "examples": [
+            "DOMAIN-KEYWORD,-p2p.pull.yximgs.com",
+            "DOMAIN-KEYWORD,-p2p-v2.pull.yximgs.com"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/reject-no-drop.mrs",
+          "input_rules": 35
+        }
+      ]
+    },
+    {
+      "source": "non_ip/reject-url-regex.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "non_ip/reject.txt",
+      "candidate_rules": 367,
+      "kept_domain_rules": 160,
+      "kept_ipcidr_rules": 47,
+      "dropped_rules": 160,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 15,
+          "examples": [
+            "DOMAIN-WILDCARD,info.*.aleragroup.com",
+            "DOMAIN-WILDCARD,f-log*.grammarly.io",
+            "DOMAIN-WILDCARD,*.ad.*.prod.hosts.ooklaserver.net"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 144,
+          "examples": [
+            "DOMAIN-KEYWORD,.estream.",
+            "DOMAIN-KEYWORD,jshosting",
+            "DOMAIN-KEYWORD,hostingcloud"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/reject.mrs",
+          "input_rules": 160
+        },
+        {
+          "behavior": "ipcidr",
+          "path": "non_ip/reject_ipcidr.mrs",
+          "input_rules": 47
+        }
+      ]
+    },
+    {
+      "source": "non_ip/sogouinput.txt",
+      "candidate_rules": 13,
+      "kept_domain_rules": 9,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 4,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 3,
+          "examples": [
+            "PROCESS-NAME,SogouInput",
+            "PROCESS-NAME,SogouTaskManager",
+            "PROCESS-NAME,SogouServices"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/sogouinput.mrs",
+          "input_rules": 9
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream.txt",
+      "candidate_rules": 287,
+      "kept_domain_rules": 258,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 29,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 14,
+          "examples": [
+            "DOMAIN-KEYWORD,avoddashs",
+            "DOMAIN-KEYWORD,bbcfmt",
+            "DOMAIN-KEYWORD,uk-live"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 14,
+          "examples": [
+            "PROCESS-NAME,com.amazon.avod.thirdpartyclient",
+            "PROCESS-NAME,tv",
+            "PROCESS-NAME,music"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream.mrs",
+          "input_rules": 258
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream_biliintl.txt",
+      "candidate_rules": 7,
+      "kept_domain_rules": 5,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 2,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,this_ruleset_is_made_by_sukkaw.ruleset.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 1,
+          "examples": [
+            "PROCESS-NAME,com.bstar.intl"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream_biliintl.mrs",
+          "input_rules": 5
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream_eu.txt",
+      "candidate_rules": 9,
+      "kept_domain_rules": 6,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 3,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 2,
+          "examples": [
+            "DOMAIN-KEYWORD,bbcfmt",
+            "DOMAIN-KEYWORD,uk-live"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream_eu.mrs",
+          "input_rules": 6
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream_hk.txt",
+      "candidate_rules": 35,
+      "kept_domain_rules": 27,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 8,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:DOMAIN-KEYWORD": {
+          "count": 2,
+          "examples": [
+            "DOMAIN-KEYWORD,nowtv100",
+            "DOMAIN-KEYWORD,rthklive"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 5,
+          "examples": [
+            "PROCESS-NAME,com.viu.pad",
+            "PROCESS-NAME,com.viu.phone",
+            "PROCESS-NAME,com.vuclip.viu"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream_hk.mrs",
+          "input_rules": 27
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream_jp.txt",
+      "candidate_rules": 26,
+      "kept_domain_rules": 25,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream_jp.mrs",
+          "input_rules": 25
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream_kr.txt",
+      "candidate_rules": 3,
+      "kept_domain_rules": 2,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream_kr.mrs",
+          "input_rules": 2
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream_tw.txt",
+      "candidate_rules": 35,
+      "kept_domain_rules": 33,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 2,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 1,
+          "examples": [
+            "PROCESS-NAME,com.linecorp.linetv"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream_tw.mrs",
+          "input_rules": 33
+        }
+      ]
+    },
+    {
+      "source": "non_ip/stream_us.txt",
+      "candidate_rules": 44,
+      "kept_domain_rules": 42,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 2,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:PROCESS-NAME": {
+          "count": 1,
+          "examples": [
+            "PROCESS-NAME,com.hulu.plus"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/stream_us.mrs",
+          "input_rules": 42
+        }
+      ]
+    },
+    {
+      "source": "non_ip/telegram.txt",
+      "candidate_rules": 15,
+      "kept_domain_rules": 14,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/telegram.mrs",
+          "input_rules": 14
+        }
+      ]
+    },
+    {
+      "source": "ip/ai.txt",
+      "candidate_rules": 24,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 23,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/ai.mrs",
+          "input_rules": 23
+        }
+      ]
+    },
+    {
+      "source": "ip/apple_services.txt",
+      "candidate_rules": 11,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 10,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/apple_services.mrs",
+          "input_rules": 10
+        }
+      ]
+    },
+    {
+      "source": "ip/cdn.txt",
+      "candidate_rules": 4,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 3,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/cdn.mrs",
+          "input_rules": 3
+        }
+      ]
+    },
+    {
+      "source": "ip/china_ip.txt",
+      "candidate_rules": 3906,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 3906,
+      "dropped_rules": 0,
+      "dropped": {},
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/china_ip.mrs",
+          "input_rules": 3906
+        }
+      ]
+    },
+    {
+      "source": "ip/china_ip_ipv6.txt",
+      "candidate_rules": 1618,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 1618,
+      "dropped_rules": 0,
+      "dropped": {},
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/china_ip_ipv6.mrs",
+          "input_rules": 1618
+        }
+      ]
+    },
+    {
+      "source": "ip/domestic.txt",
+      "candidate_rules": 3,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 2,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/domestic.mrs",
+          "input_rules": 2
+        }
+      ]
+    },
+    {
+      "source": "ip/download.txt",
+      "candidate_rules": 12,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 11,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/download.mrs",
+          "input_rules": 11
+        }
+      ]
+    },
+    {
+      "source": "ip/lan.txt",
+      "candidate_rules": 12,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 11,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/lan.mrs",
+          "input_rules": 11
+        }
+      ]
+    },
+    {
+      "source": "ip/neteasemusic.txt",
+      "candidate_rules": 18,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 17,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/neteasemusic.mrs",
+          "input_rules": 17
+        }
+      ]
+    },
+    {
+      "source": "ip/reject.txt",
+      "candidate_rules": 777,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 761,
+      "dropped_rules": 16,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:IP-ASN": {
+          "count": 15,
+          "examples": [
+            "IP-ASN,1012",
+            "IP-ASN,945",
+            "IP-ASN,401111"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/reject.mrs",
+          "input_rules": 761
+        }
+      ]
+    },
+    {
+      "source": "ip/stream.txt",
+      "candidate_rules": 20,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 19,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/stream.mrs",
+          "input_rules": 19
+        }
+      ]
+    },
+    {
+      "source": "ip/stream_biliintl.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,this_ruleset_is_made_by_sukkaw.ruleset.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "ip/stream_eu.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "ip/stream_hk.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "ip/stream_jp.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "ip/stream_kr.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "ip/stream_tw.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "ip/stream_us.txt",
+      "candidate_rules": 1,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": []
+    },
+    {
+      "source": "ip/telegram.txt",
+      "candidate_rules": 16,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 15,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/telegram.mrs",
+          "input_rules": 15
+        }
+      ]
+    },
+    {
+      "source": "ip/telegram_asn.txt",
+      "candidate_rules": 6,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 6,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:IP-ASN": {
+          "count": 5,
+          "examples": [
+            "IP-ASN,62041",
+            "IP-ASN,62014",
+            "IP-ASN,59930"
+          ]
+        }
+      },
+      "outputs": []
+    }
+  ]
+}

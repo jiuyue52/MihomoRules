@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "enabled_entries": 0,
+    "candidate_rules": 0,
+    "kept_domain_rules": 0,
+    "kept_ipcidr_rules": 0,
+    "dropped_rules": 0,
+    "mrs_files": 0
+  },
+  "files": []
+}
