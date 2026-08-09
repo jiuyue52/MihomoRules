@@ -2,10 +2,10 @@
   "schema_version": 1,
   "summary": {
     "source_files": 69,
-    "candidate_rules": 387814,
-    "kept_domain_rules": 380898,
-    "kept_ipcidr_rules": 6446,
-    "dropped_rules": 470,
+    "candidate_rules": 387572,
+    "kept_domain_rules": 381038,
+    "kept_ipcidr_rules": 6062,
+    "dropped_rules": 472,
     "mrs_files": 57
   },
   "files": [
@@ -33,8 +33,8 @@
     },
     {
       "source": "domainset/cdn.txt",
-      "candidate_rules": 4609,
-      "kept_domain_rules": 4608,
+      "candidate_rules": 4607,
+      "kept_domain_rules": 4606,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -49,7 +49,7 @@
         {
           "behavior": "domain",
           "path": "domainset/cdn.mrs",
-          "input_rules": 4608
+          "input_rules": 4606
         }
       ]
     },
@@ -77,8 +77,8 @@
     },
     {
       "source": "domainset/download.txt",
-      "candidate_rules": 1970,
-      "kept_domain_rules": 1969,
+      "candidate_rules": 1965,
+      "kept_domain_rules": 1964,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -93,7 +93,7 @@
         {
           "behavior": "domain",
           "path": "domainset/download.mrs",
-          "input_rules": 1969
+          "input_rules": 1964
         }
       ]
     },
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 115861,
-      "kept_domain_rules": 115860,
+      "candidate_rules": 115928,
+      "kept_domain_rules": 115927,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 115860
+          "input_rules": 115927
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 105831,
-      "kept_domain_rules": 105830,
+      "candidate_rules": 105830,
+      "kept_domain_rules": 105829,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,14 +181,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 105830
+          "input_rules": 105829
         }
       ]
     },
     {
       "source": "domainset/reject_phishing.txt",
-      "candidate_rules": 145780,
-      "kept_domain_rules": 145779,
+      "candidate_rules": 145861,
+      "kept_domain_rules": 145860,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -203,7 +203,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_phishing.mrs",
-          "input_rules": 145779
+          "input_rules": 145860
         }
       ]
     },
@@ -218,8 +218,8 @@
     },
     {
       "source": "domainset/speedtest.txt",
-      "candidate_rules": 3318,
-      "kept_domain_rules": 3313,
+      "candidate_rules": 3319,
+      "kept_domain_rules": 3314,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 5,
       "dropped": {
@@ -236,7 +236,7 @@
         {
           "behavior": "domain",
           "path": "domainset/speedtest.mrs",
-          "input_rules": 3313
+          "input_rules": 3314
         }
       ]
     },
@@ -359,10 +359,10 @@
     },
     {
       "source": "non_ip/cdn.txt",
-      "candidate_rules": 85,
+      "candidate_rules": 87,
       "kept_domain_rules": 5,
       "kept_ipcidr_rules": 0,
-      "dropped_rules": 80,
+      "dropped_rules": 82,
       "dropped": {
         "skk_marker": {
           "count": 1,
@@ -371,7 +371,7 @@
           ]
         },
         "unsupported_domain_wildcard": {
-          "count": 58,
+          "count": 59,
           "examples": [
             "DOMAIN-WILDCARD,cdn.*.office.net",
             "DOMAIN-WILDCARD,cdn.*.microsoft.com",
@@ -379,7 +379,7 @@
           ]
         },
         "unsupported_rule_type:DOMAIN-KEYWORD": {
-          "count": 21,
+          "count": 22,
           "examples": [
             "DOMAIN-KEYWORD,-files.gitbook.io",
             "DOMAIN-KEYWORD,vod-adaptive.akamaized.net",
@@ -688,8 +688,8 @@
     },
     {
       "source": "non_ip/my_plus.txt",
-      "candidate_rules": 16,
-      "kept_domain_rules": 15,
+      "candidate_rules": 15,
+      "kept_domain_rules": 14,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -704,7 +704,7 @@
         {
           "behavior": "domain",
           "path": "non_ip/my_plus.mrs",
-          "input_rules": 15
+          "input_rules": 14
         }
       ]
     },
@@ -1339,16 +1339,16 @@
     },
     {
       "source": "ip/china_ip_ipv6.txt",
-      "candidate_rules": 1618,
+      "candidate_rules": 1234,
       "kept_domain_rules": 0,
-      "kept_ipcidr_rules": 1618,
+      "kept_ipcidr_rules": 1234,
       "dropped_rules": 0,
       "dropped": {},
       "outputs": [
         {
           "behavior": "ipcidr",
           "path": "ip/china_ip_ipv6.mrs",
-          "input_rules": 1618
+          "input_rules": 1234
         }
       ]
     },
