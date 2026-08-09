@@ -2,8 +2,8 @@
   "schema_version": 1,
   "summary": {
     "source_files": 69,
-    "candidate_rules": 387799,
-    "kept_domain_rules": 380883,
+    "candidate_rules": 387814,
+    "kept_domain_rules": 380898,
     "kept_ipcidr_rules": 6446,
     "dropped_rules": 470,
     "mrs_files": 57
@@ -77,8 +77,8 @@
     },
     {
       "source": "domainset/download.txt",
-      "candidate_rules": 1968,
-      "kept_domain_rules": 1967,
+      "candidate_rules": 1970,
+      "kept_domain_rules": 1969,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -93,7 +93,7 @@
         {
           "behavior": "domain",
           "path": "domainset/download.mrs",
-          "input_rules": 1967
+          "input_rules": 1969
         }
       ]
     },
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 115833,
-      "kept_domain_rules": 115832,
+      "candidate_rules": 115861,
+      "kept_domain_rules": 115860,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 115832
+          "input_rules": 115860
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 105846,
-      "kept_domain_rules": 105845,
+      "candidate_rules": 105831,
+      "kept_domain_rules": 105830,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,7 +181,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 105845
+          "input_rules": 105830
         }
       ]
     },
