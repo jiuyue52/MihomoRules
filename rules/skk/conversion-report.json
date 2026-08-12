@@ -2,9 +2,9 @@
   "schema_version": 1,
   "summary": {
     "source_files": 69,
-    "candidate_rules": 378028,
-    "kept_domain_rules": 371491,
-    "kept_ipcidr_rules": 6065,
+    "candidate_rules": 378375,
+    "kept_domain_rules": 371836,
+    "kept_ipcidr_rules": 6067,
     "dropped_rules": 472,
     "mrs_files": 57
   },
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 114993,
-      "kept_domain_rules": 114992,
+      "candidate_rules": 114984,
+      "kept_domain_rules": 114983,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 114992
+          "input_rules": 114983
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 97283,
-      "kept_domain_rules": 97282,
+      "candidate_rules": 97509,
+      "kept_domain_rules": 97508,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,14 +181,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 97282
+          "input_rules": 97508
         }
       ]
     },
     {
       "source": "domainset/reject_phishing.txt",
-      "candidate_rules": 145782,
-      "kept_domain_rules": 145781,
+      "candidate_rules": 145910,
+      "kept_domain_rules": 145909,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -203,7 +203,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_phishing.mrs",
-          "input_rules": 145781
+          "input_rules": 145909
         }
       ]
     },
@@ -1339,16 +1339,16 @@
     },
     {
       "source": "ip/china_ip_ipv6.txt",
-      "candidate_rules": 1233,
+      "candidate_rules": 1235,
       "kept_domain_rules": 0,
-      "kept_ipcidr_rules": 1233,
+      "kept_ipcidr_rules": 1235,
       "dropped_rules": 0,
       "dropped": {},
       "outputs": [
         {
           "behavior": "ipcidr",
           "path": "ip/china_ip_ipv6.mrs",
-          "input_rules": 1233
+          "input_rules": 1235
         }
       ]
     },
