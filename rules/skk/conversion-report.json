@@ -2,9 +2,9 @@
   "schema_version": 1,
   "summary": {
     "source_files": 69,
-    "candidate_rules": 379110,
-    "kept_domain_rules": 372570,
-    "kept_ipcidr_rules": 6068,
+    "candidate_rules": 379149,
+    "kept_domain_rules": 372610,
+    "kept_ipcidr_rules": 6067,
     "dropped_rules": 472,
     "mrs_files": 57
   },
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 115280,
-      "kept_domain_rules": 115279,
+      "candidate_rules": 115311,
+      "kept_domain_rules": 115310,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 115279
+          "input_rules": 115310
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 97659,
-      "kept_domain_rules": 97658,
+      "candidate_rules": 97664,
+      "kept_domain_rules": 97663,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,7 +181,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 97658
+          "input_rules": 97663
         }
       ]
     },
@@ -218,8 +218,8 @@
     },
     {
       "source": "domainset/speedtest.txt",
-      "candidate_rules": 3325,
-      "kept_domain_rules": 3320,
+      "candidate_rules": 3329,
+      "kept_domain_rules": 3324,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 5,
       "dropped": {
@@ -236,7 +236,7 @@
         {
           "behavior": "domain",
           "path": "domainset/speedtest.mrs",
-          "input_rules": 3320
+          "input_rules": 3324
         }
       ]
     },
@@ -1606,9 +1606,9 @@
     },
     {
       "source": "ip/telegram.txt",
-      "candidate_rules": 16,
+      "candidate_rules": 15,
       "kept_domain_rules": 0,
-      "kept_ipcidr_rules": 15,
+      "kept_ipcidr_rules": 14,
       "dropped_rules": 1,
       "dropped": {
         "skk_marker": {
@@ -1622,7 +1622,7 @@
         {
           "behavior": "ipcidr",
           "path": "ip/telegram.mrs",
-          "input_rules": 15
+          "input_rules": 14
         }
       ]
     },
