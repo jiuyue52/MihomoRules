@@ -2,8 +2,8 @@
   "schema_version": 1,
   "summary": {
     "source_files": 69,
-    "candidate_rules": 380587,
-    "kept_domain_rules": 371855,
+    "candidate_rules": 380617,
+    "kept_domain_rules": 371885,
     "kept_ipcidr_rules": 8263,
     "dropped_rules": 469,
     "mrs_files": 57
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 135128,
-      "kept_domain_rules": 135127,
+      "candidate_rules": 135149,
+      "kept_domain_rules": 135148,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 135127
+          "input_rules": 135148
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 75868,
-      "kept_domain_rules": 75867,
+      "candidate_rules": 75877,
+      "kept_domain_rules": 75876,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,7 +181,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 75867
+          "input_rules": 75876
         }
       ]
     },
