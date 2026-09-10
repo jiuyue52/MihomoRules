@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "summary": {
-    "source_files": 69,
-    "candidate_rules": 381668,
-    "kept_domain_rules": 372916,
-    "kept_ipcidr_rules": 8282,
-    "dropped_rules": 470,
-    "mrs_files": 57
+    "source_files": 70,
+    "candidate_rules": 381718,
+    "kept_domain_rules": 372951,
+    "kept_ipcidr_rules": 8296,
+    "dropped_rules": 471,
+    "mrs_files": 58
   },
   "files": [
     {
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 134657,
-      "kept_domain_rules": 134656,
+      "candidate_rules": 134692,
+      "kept_domain_rules": 134691,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,7 +159,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 134656
+          "input_rules": 134691
         }
       ]
     },
@@ -688,8 +688,8 @@
     },
     {
       "source": "non_ip/my_plus.txt",
-      "candidate_rules": 15,
-      "kept_domain_rules": 14,
+      "candidate_rules": 16,
+      "kept_domain_rules": 15,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -704,7 +704,7 @@
         {
           "behavior": "domain",
           "path": "non_ip/my_plus.mrs",
-          "input_rules": 14
+          "input_rules": 15
         }
       ]
     },
@@ -776,8 +776,8 @@
     },
     {
       "source": "non_ip/my_tw.txt",
-      "candidate_rules": 14,
-      "kept_domain_rules": 9,
+      "candidate_rules": 13,
+      "kept_domain_rules": 8,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 5,
       "dropped": {
@@ -800,7 +800,7 @@
         {
           "behavior": "domain",
           "path": "non_ip/my_tw.mrs",
-          "input_rules": 9
+          "input_rules": 8
         }
       ]
     },
@@ -1649,6 +1649,28 @@
         }
       },
       "outputs": []
+    },
+    {
+      "source": "ip/teleproto.txt",
+      "candidate_rules": 15,
+      "kept_domain_rules": 0,
+      "kept_ipcidr_rules": 14,
+      "dropped_rules": 1,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "ipcidr",
+          "path": "ip/teleproto.mrs",
+          "input_rules": 14
+        }
+      ]
     }
   ]
 }
