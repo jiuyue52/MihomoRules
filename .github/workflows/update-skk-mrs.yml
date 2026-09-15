@@ -33,9 +33,7 @@ env:
   SKK_OUTPUT_DIR: rules/skk
   JY_OUTPUT_DIR: JYRules
   CUSTOM_MANIFEST: custom-rules.json
-  # Pin the verified core release and checksum; do not trust a moving latest asset.
-  MIHOMO_VERSION: v1.19.29
-  MIHOMO_LINUX_AMD64_SHA256: 5612e698e96c8b8ad15abc4c0a4f098eba9234354b4f248cb97f2528e215b094
+  MIHOMO_RELEASE_TAG: Prerelease-Alpha
 
 jobs:
   update:
@@ -71,7 +69,7 @@ jobs:
             echo "short_tree=${tree:0:12}"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Resolve pinned Mihomo release
+      - name: Resolve latest Mihomo Alpha release
         id: mihomo_release
         shell: bash
         env:
@@ -83,14 +81,16 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer $GH_TOKEN" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
-              "https://api.github.com/repos/MetaCubeX/mihomo/releases/tags/$MIHOMO_VERSION"
+              "https://api.github.com/repos/MetaCubeX/mihomo/releases/tags/$MIHOMO_RELEASE_TAG"
           )"
           version="$(jq -er '.tag_name' <<< "$release_json")"
-          [[ "$version" == "$MIHOMO_VERSION" ]] || {
+          [[ "$version" == "$MIHOMO_RELEASE_TAG" ]] || {
             echo "Unexpected Mihomo release tag: $version" >&2
             exit 1
           }
-          asset_name="mihomo-linux-amd64-compatible-${version}.gz"
+          asset_name="$(jq -er '[.assets[] | select(.name | test("^mihomo-linux-amd64-compatible-alpha-[0-9a-f]+\\.gz$"))] | if length == 1 then .[0].name else error("Expected exactly one Alpha asset") end' <<< "$release_json")"
+          version="${asset_name#mihomo-linux-amd64-compatible-}"
+          version="${version%.gz}"
           asset_url="$(
             jq -er --arg name "$asset_name" \
               '.assets[] | select(.name == $name) | .browser_download_url' \
@@ -103,10 +103,6 @@ jobs:
           )"
           [[ "$digest" == sha256:* ]] || {
             echo "Mihomo release asset has no SHA256 digest: $asset_name" >&2
-            exit 1
-          }
-          [[ "$digest" == "sha256:$MIHOMO_LINUX_AMD64_SHA256" ]] || {
-            echo "Mihomo release asset digest does not match the pinned checksum" >&2
             exit 1
           }
           {

@@ -64,5 +64,5 @@ MRS 不能保存每一条 IP 规则上的 `no-resolve` 标记；需要该行为�
 工作流每小时检查 SKK、Mihomo 版本和自定义远程规则；也可以在 Actions 页面
 手动运行 `Update SKK and custom Mihomo MRS`。
 
-工作流目前固定使用已校验的 Mihomo `v1.19.29`。升级核心时需要同时更新工作流
-里的版本号和 Linux 资产 SHA256，避免下载未经固定校验的滚动资产。
+工作流每次从 Mihomo `Prerelease-Alpha` Release 解析最新 compatible Linux 资产，
+并使用 GitHub Release API 返回的 SHA256 digest 校验下载内容。
