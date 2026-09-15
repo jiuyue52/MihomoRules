@@ -5,7 +5,7 @@ published by [Sukka Ruleset](https://github.com/SukkaLab/ruleset.skk.moe).
 
 - Upstream commit: `7e70fed905afadd433c1181930b0a75320cc5780`
 - Clash tree: `a86fb93ba7fc67fa13457fdc664cc84667e02d5f`
-- Converter: Mihomo `alpha-ab405ba`
+- Converter: Mihomo `alpha-fbb6742`
 - Most `domainset`, `non_ip`, and `ip` sources: AGPL-3.0
 - `ip/china_ip.mrs` and `ip/china_ip_ipv6.mrs`: CC BY-SA 2.0
 
