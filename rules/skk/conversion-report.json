@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "summary": {
-    "source_files": 70,
-    "candidate_rules": 381365,
-    "kept_domain_rules": 372650,
-    "kept_ipcidr_rules": 8244,
-    "dropped_rules": 471,
-    "mrs_files": 58
+    "source_files": 71,
+    "candidate_rules": 381526,
+    "kept_domain_rules": 372811,
+    "kept_ipcidr_rules": 8242,
+    "dropped_rules": 473,
+    "mrs_files": 59
   },
   "files": [
     {
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 135184,
-      "kept_domain_rules": 135183,
+      "candidate_rules": 135301,
+      "kept_domain_rules": 135300,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 135183
+          "input_rules": 135300
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 79493,
-      "kept_domain_rules": 79492,
+      "candidate_rules": 79527,
+      "kept_domain_rules": 79526,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,7 +181,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 79492
+          "input_rules": 79526
         }
       ]
     },
@@ -218,8 +218,8 @@
     },
     {
       "source": "domainset/speedtest.txt",
-      "candidate_rules": 3395,
-      "kept_domain_rules": 3390,
+      "candidate_rules": 3399,
+      "kept_domain_rules": 3394,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 5,
       "dropped": {
@@ -236,7 +236,7 @@
         {
           "behavior": "domain",
           "path": "domainset/speedtest.mrs",
-          "input_rules": 3390
+          "input_rules": 3394
         }
       ]
     },
@@ -465,7 +465,7 @@
         "unsupported_domain_wildcard": {
           "count": 1,
           "examples": [
-            "DOMAIN-WILDCARD,*.qhimgs?.com"
+            "DOMAIN-WILDCARD,qhimgs?.com"
           ]
         }
       },
@@ -474,6 +474,34 @@
           "behavior": "domain",
           "path": "non_ip/domestic.mrs",
           "input_rules": 866
+        }
+      ]
+    },
+    {
+      "source": "non_ip/domestic_cdn.txt",
+      "candidate_rules": 8,
+      "kept_domain_rules": 6,
+      "kept_ipcidr_rules": 0,
+      "dropped_rules": 2,
+      "dropped": {
+        "skk_marker": {
+          "count": 1,
+          "examples": [
+            "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_domain_wildcard": {
+          "count": 1,
+          "examples": [
+            "DOMAIN-WILDCARD,qhimgs?.com"
+          ]
+        }
+      },
+      "outputs": [
+        {
+          "behavior": "domain",
+          "path": "non_ip/domestic_cdn.mrs",
+          "input_rules": 6
         }
       ]
     },
@@ -1324,16 +1352,16 @@
     },
     {
       "source": "ip/china_ip.txt",
-      "candidate_rules": 3903,
+      "candidate_rules": 3901,
       "kept_domain_rules": 0,
-      "kept_ipcidr_rules": 3903,
+      "kept_ipcidr_rules": 3901,
       "dropped_rules": 0,
       "dropped": {},
       "outputs": [
         {
           "behavior": "ipcidr",
           "path": "ip/china_ip.mrs",
-          "input_rules": 3903
+          "input_rules": 3901
         }
       ]
     },
