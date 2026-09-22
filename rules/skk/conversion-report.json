@@ -2,8 +2,8 @@
   "schema_version": 1,
   "summary": {
     "source_files": 70,
-    "candidate_rules": 381237,
-    "kept_domain_rules": 372520,
+    "candidate_rules": 381450,
+    "kept_domain_rules": 372733,
     "kept_ipcidr_rules": 8246,
     "dropped_rules": 471,
     "mrs_files": 58
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 135139,
-      "kept_domain_rules": 135138,
+      "candidate_rules": 135100,
+      "kept_domain_rules": 135099,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 135138
+          "input_rules": 135099
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 79324,
-      "kept_domain_rules": 79323,
+      "candidate_rules": 79482,
+      "kept_domain_rules": 79481,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,14 +181,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 79323
+          "input_rules": 79481
         }
       ]
     },
     {
       "source": "domainset/reject_phishing.txt",
-      "candidate_rules": 144483,
-      "kept_domain_rules": 144482,
+      "candidate_rules": 144576,
+      "kept_domain_rules": 144575,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -203,7 +203,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_phishing.mrs",
-          "input_rules": 144482
+          "input_rules": 144575
         }
       ]
     },
@@ -451,8 +451,8 @@
     },
     {
       "source": "non_ip/domestic.txt",
-      "candidate_rules": 867,
-      "kept_domain_rules": 865,
+      "candidate_rules": 868,
+      "kept_domain_rules": 866,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 2,
       "dropped": {
@@ -473,7 +473,7 @@
         {
           "behavior": "domain",
           "path": "non_ip/domestic.mrs",
-          "input_rules": 865
+          "input_rules": 866
         }
       ]
     },
