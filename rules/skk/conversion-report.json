@@ -2,10 +2,10 @@
   "schema_version": 1,
   "summary": {
     "source_files": 71,
-    "candidate_rules": 373037,
-    "kept_domain_rules": 364278,
+    "candidate_rules": 372751,
+    "kept_domain_rules": 363991,
     "kept_ipcidr_rules": 8286,
-    "dropped_rules": 473,
+    "dropped_rules": 474,
     "mrs_files": 59
   },
   "files": [
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 135022,
-      "kept_domain_rules": 135021,
+      "candidate_rules": 135040,
+      "kept_domain_rules": 135039,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 135021
+          "input_rules": 135039
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 75796,
-      "kept_domain_rules": 75795,
+      "candidate_rules": 75785,
+      "kept_domain_rules": 75784,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,14 +181,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 75795
+          "input_rules": 75784
         }
       ]
     },
     {
       "source": "domainset/reject_phishing.txt",
-      "candidate_rules": 139836,
-      "kept_domain_rules": 139835,
+      "candidate_rules": 139541,
+      "kept_domain_rules": 139540,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -203,7 +203,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_phishing.mrs",
-          "input_rules": 139835
+          "input_rules": 139540
         }
       ]
     },
@@ -242,8 +242,8 @@
     },
     {
       "source": "non_ip/ai.txt",
-      "candidate_rules": 51,
-      "kept_domain_rules": 48,
+      "candidate_rules": 52,
+      "kept_domain_rules": 49,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 3,
       "dropped": {
@@ -265,7 +265,7 @@
         {
           "behavior": "domain",
           "path": "non_ip/ai.mrs",
-          "input_rules": 48
+          "input_rules": 49
         }
       ]
     },
@@ -1286,15 +1286,21 @@
     },
     {
       "source": "ip/ai.txt",
-      "candidate_rules": 24,
+      "candidate_rules": 25,
       "kept_domain_rules": 0,
       "kept_ipcidr_rules": 23,
-      "dropped_rules": 1,
+      "dropped_rules": 2,
       "dropped": {
         "skk_marker": {
           "count": 1,
           "examples": [
             "DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe"
+          ]
+        },
+        "unsupported_rule_type:IP-ASN": {
+          "count": 1,
+          "examples": [
+            "IP-ASN,399358"
           ]
         }
       },
