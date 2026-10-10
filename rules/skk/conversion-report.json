@@ -2,9 +2,9 @@
   "schema_version": 1,
   "summary": {
     "source_files": 71,
-    "candidate_rules": 375416,
-    "kept_domain_rules": 366637,
-    "kept_ipcidr_rules": 8304,
+    "candidate_rules": 375192,
+    "kept_domain_rules": 366412,
+    "kept_ipcidr_rules": 8305,
     "dropped_rules": 475,
     "mrs_files": 59
   },
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 138422,
-      "kept_domain_rules": 138421,
+      "candidate_rules": 138291,
+      "kept_domain_rules": 138290,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 138421
+          "input_rules": 138290
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 78723,
-      "kept_domain_rules": 78722,
+      "candidate_rules": 78970,
+      "kept_domain_rules": 78969,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,14 +181,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 78722
+          "input_rules": 78969
         }
       ]
     },
     {
       "source": "domainset/reject_phishing.txt",
-      "candidate_rules": 135848,
-      "kept_domain_rules": 135847,
+      "candidate_rules": 135507,
+      "kept_domain_rules": 135506,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -203,7 +203,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_phishing.mrs",
-          "input_rules": 135847
+          "input_rules": 135506
         }
       ]
     },
@@ -1476,9 +1476,9 @@
     },
     {
       "source": "ip/reject.txt",
-      "candidate_rules": 779,
+      "candidate_rules": 780,
       "kept_domain_rules": 0,
-      "kept_ipcidr_rules": 763,
+      "kept_ipcidr_rules": 764,
       "dropped_rules": 16,
       "dropped": {
         "skk_marker": {
@@ -1500,7 +1500,7 @@
         {
           "behavior": "ipcidr",
           "path": "ip/reject.mrs",
-          "input_rules": 763
+          "input_rules": 764
         }
       ]
     },
