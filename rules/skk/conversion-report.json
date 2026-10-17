@@ -2,8 +2,8 @@
   "schema_version": 1,
   "summary": {
     "source_files": 71,
-    "candidate_rules": 382834,
-    "kept_domain_rules": 374053,
+    "candidate_rules": 382637,
+    "kept_domain_rules": 373856,
     "kept_ipcidr_rules": 8306,
     "dropped_rules": 475,
     "mrs_files": 59
@@ -143,8 +143,8 @@
     },
     {
       "source": "domainset/reject.txt",
-      "candidate_rules": 140799,
-      "kept_domain_rules": 140798,
+      "candidate_rules": 140954,
+      "kept_domain_rules": 140953,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -159,14 +159,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject.mrs",
-          "input_rules": 140798
+          "input_rules": 140953
         }
       ]
     },
     {
       "source": "domainset/reject_extra.txt",
-      "candidate_rules": 78381,
-      "kept_domain_rules": 78380,
+      "candidate_rules": 78388,
+      "kept_domain_rules": 78387,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -181,14 +181,14 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_extra.mrs",
-          "input_rules": 78380
+          "input_rules": 78387
         }
       ]
     },
     {
       "source": "domainset/reject_phishing.txt",
-      "candidate_rules": 141209,
-      "kept_domain_rules": 141208,
+      "candidate_rules": 140844,
+      "kept_domain_rules": 140843,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 1,
       "dropped": {
@@ -203,7 +203,7 @@
         {
           "behavior": "domain",
           "path": "domainset/reject_phishing.mrs",
-          "input_rules": 141208
+          "input_rules": 140843
         }
       ]
     },
@@ -218,8 +218,8 @@
     },
     {
       "source": "domainset/speedtest.txt",
-      "candidate_rules": 3436,
-      "kept_domain_rules": 3431,
+      "candidate_rules": 3442,
+      "kept_domain_rules": 3437,
       "kept_ipcidr_rules": 0,
       "dropped_rules": 5,
       "dropped": {
@@ -236,7 +236,7 @@
         {
           "behavior": "domain",
           "path": "domainset/speedtest.mrs",
-          "input_rules": 3431
+          "input_rules": 3437
         }
       ]
     },
