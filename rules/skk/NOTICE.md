@@ -3,8 +3,8 @@
 These MRS files are generated from the Mihomo-compatible Clash output
 published by [Sukka Ruleset](https://github.com/SukkaLab/ruleset.skk.moe).
 
-- Upstream commit: `448024eadcdb67003b7249f668796ce64d18600a`
-- Clash tree: `b28ca333b3b0b46ee7983303962d651a480379c4`
+- Upstream commit: `aea855e71197f27e1ec3a05056e59944a0170906`
+- Clash tree: `79a4e41227136b8964127925e31f7c52e6773ea7`
 - Converter: Mihomo `alpha-12b81d4`
 - Most `domainset`, `non_ip`, and `ip` sources: AGPL-3.0
 - `ip/china_ip.mrs` and `ip/china_ip_ipv6.mrs`: CC BY-SA 2.0
